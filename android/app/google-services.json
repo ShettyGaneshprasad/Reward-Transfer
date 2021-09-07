@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "553896794909",
+    "project_id": "reward-transfer-643d7",
+    "storage_bucket": "reward-transfer-643d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553896794909:android:9d3a9b8f423e697c2edff4",
+        "android_client_info": {
+          "package_name": "com.netlify.shettyganeshprasad.RewardTransfer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553896794909-h1o53o6qj0mkoj0o5ik6kcn03j5rbqk5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCer5OuDcldryDtG4FJE9cQLgxSuQFAZZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553896794909-h1o53o6qj0mkoj0o5ik6kcn03j5rbqk5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
