@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "553896794909",
-    "project_id": "reward-transfer-643d7",
-    "storage_bucket": "reward-transfer-643d7.appspot.com"
+    "project_number": "468375758385",
+    "project_id": "reward-transfer-ff087",
+    "storage_bucket": "reward-transfer-ff087.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:553896794909:android:9d3a9b8f423e697c2edff4",
+        "mobilesdk_app_id": "1:468375758385:android:7b87a1b1b1fe7fc26b9710",
         "android_client_info": {
-          "package_name": "com.netlify.shettyganeshprasad.RewardTransfer"
+          "package_name": "com.shettyganeshpasad.rewardtransfer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "553896794909-h1o53o6qj0mkoj0o5ik6kcn03j5rbqk5.apps.googleusercontent.com",
+          "client_id": "468375758385-tvt14ie1di8f1q3h7eito8j76rkho8os.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCer5OuDcldryDtG4FJE9cQLgxSuQFAZZo"
+          "current_key": "AIzaSyDAgjfE5H9cU7NIvxbVQEunvA--i0HhaPI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "553896794909-h1o53o6qj0mkoj0o5ik6kcn03j5rbqk5.apps.googleusercontent.com",
+              "client_id": "468375758385-tvt14ie1di8f1q3h7eito8j76rkho8os.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
