@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:reward_transfer/services/auth_Service.dart';
 import 'rounded_button.dart';
 // import 'flutter modul'
 import 'package:flutter/material.dart';
@@ -27,9 +28,10 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-final _auth = FirebaseAuth.instance;
+// final _auth = FirebaseAuth.instance;
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _authService = AuthService();
   String email = "default email";
   String password = "default password";
   bool showSpinner = false;
@@ -77,15 +79,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     setState(() {
                       showSpinner = true;
                     });
-                    try {
-                      final user = await _auth.signInWithEmailAndPassword(
-                          email: email, password: password);
-                      if (user != null) {
-                        Navigator.pushNamed(context, 'home_screen');
-                      }
-                    } catch (e) {
-                      print(e);
-                    }
+
+                    _authService.loginWithEmailAndPassword(
+                        email, password, context);
+                    // try {
+                    //   final user = await _auth.signInWithEmailAndPassword(
+                    //       email: email, password: password);
+                    //   if (user != null) {
+                    //     Navigator.pushNamed(context, 'home_screen');
+                    //   }
+                    // } catch (e) {
+                    //   print(e);
+                    // }
                     setState(() {
                       showSpinner = false;
                     });

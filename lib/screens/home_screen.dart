@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:reward_transfer/services/auth_Service.dart';
 
 User? loggedinUser;
 
@@ -9,24 +10,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _auth = FirebaseAuth.instance;
+  // final _auth = FirebaseAuth.instance;
+  final _authService = AuthService();
 
+  @override
   void initState() {
     super.initState();
-    getCurrentUser();
+    _authService.getCurrentUser(loggedinUser);
   }
 
   //using this function you can use the credentials of the user
-  void getCurrentUser() async {
-    try {
-      final user = await _auth.currentUser;
-      if (user != null) {
-        loggedinUser = user;
-      }
-    } catch (e) {
-      print(e);
-    }
-  }
+  // void getCurrentUser() async {
+  //   try {
+  //     final user = await _auth.currentUser;
+  //     if (user != null) {
+  //       loggedinUser = user;
+  //     }
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -35,18 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: null,
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.close),
+              icon: const Icon(Icons.close),
               onPressed: () {
-                _auth.signOut();
+                _authService.signOut();
+                //  _auth.signOut();
                 Navigator.pop(context);
 
                 //Implement logout functionality
               }),
         ],
-        title: Text('Home Page'),
+        title: const Text('Home Page'),
         backgroundColor: Colors.lightBlueAccent,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           "Welcome User",
           style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
