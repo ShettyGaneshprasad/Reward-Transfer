@@ -1,28 +1,71 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:reward_transfer/screens/home_screen.dart';
-import 'package:reward_transfer/screens/login_screen.dart';
-import 'package:reward_transfer/screens/signup_screen.dart';
-import 'package:reward_transfer/screens/welcome_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'blocs/authentication_bloc/authentication_state.dart';
+import 'repositories/user_repository.dart';
+import 'screens/home_screen.dart';
+import 'screens/login/login_screen.dart';
+
+import 'blocs/authentication_bloc/authentication_bloc.dart';
+import 'blocs/authentication_bloc/authentication_event.dart';
+import 'blocs/simple_bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+
+  Bloc.observer = SimpleBlocObserver();
+  final UserRepository userRepository = UserRepository();
+
+  runApp(
+    BlocProvider(
+      create: (context) => AuthenticationBloc(
+        userRepository: userRepository,
+      )..add(AuthenticationStarted()),
+      child: MyApp(
+        userRepository: userRepository,
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  final UserRepository _userRepository;
+
+  MyApp({required UserRepository userRepository})
+      : _userRepository = userRepository;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: 'welcome_screen',
-      routes: {
-        'welcome_screen': (context) => WelcomeScreen(),
-        'registration_screen': (context) => RegistrationScreen(),
-        'login_screen': (context) => LoginScreen(),
-        'home_screen': (context) => HomeScreen()
-      },
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: Color(0xff6a515e),
+        cursorColor: Color(0xff6a515e),
+      ),
+      home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+        builder: (context, state) {
+          if (state is AuthenticationFailure) {
+            return LoginScreen(
+              userRepository: _userRepository,
+            );
+          }
+
+          if (state is AuthenticationSuccess) {
+            return HomeScreen(
+              user: state.firebaseUser,
+            );
+          }
+
+          return Scaffold(
+            appBar: AppBar(),
+            body: Container(
+              child: Center(child: Text("Loading")),
+            ),
+          );
+        },
+      ),
     );
   }
 }
