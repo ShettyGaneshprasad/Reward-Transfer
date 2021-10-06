@@ -1,28 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:reward_transfer/screens/home_screen.dart';
-import 'package:reward_transfer/screens/login_screen.dart';
-import 'package:reward_transfer/screens/signup_screen.dart';
-import 'package:reward_transfer/screens/welcome_screen.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+import 'screens/sign_in_screen.dart';
+
+void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: 'welcome_screen',
-      routes: {
-        'welcome_screen': (context) => WelcomeScreen(),
-        'registration_screen': (context) => RegistrationScreen(),
-        'login_screen': (context) => LoginScreen(),
-        'home_screen': (context) => HomeScreen()
-      },
+      title: 'FlutterFire Samples',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+        brightness: Brightness.dark,
+      ),
+      home: SignInScreen(),
     );
   }
 }
