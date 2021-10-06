@@ -114,7 +114,60 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   letterSpacing: 0.5,
                 ),
               ),
+
               const SizedBox(height: 24.0),
+
+              //!testing
+
+              Text(
+                '( ${_user.emailVerified} )',
+                style: TextStyle(
+                  color: CustomColors.firebaseOrange,
+                  fontSize: 20,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              Text(
+                '( ${_user.metadata} )',
+                style: TextStyle(
+                  color: CustomColors.firebaseOrange,
+                  fontSize: 20,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              Text(
+                '( ${_user.phoneNumber} )',
+                style: TextStyle(
+                  color: CustomColors.firebaseOrange,
+                  fontSize: 20,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              Text(
+                '( ${_user.providerData} )',
+                style: TextStyle(
+                  color: CustomColors.firebaseOrange,
+                  fontSize: 20,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              Text(
+                '( ${_user.tenantId} )',
+                style: TextStyle(
+                  color: CustomColors.firebaseOrange,
+                  fontSize: 20,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              Text(
+                '( ${_user.uid} )',
+                style: TextStyle(
+                  color: CustomColors.firebaseOrange,
+                  fontSize: 20,
+                  letterSpacing: 0.5,
+                ),
+              ),
+
               Text(
                 'You are now signed in using your Google account. To sign out of your account, click the "Sign Out" button below.',
                 style: TextStyle(
